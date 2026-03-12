@@ -24,13 +24,13 @@ export default {
     // Parse XML (simple parser)
     const parser = new DOMParser();
     const doc = parser.parseFromString(xml, 'text/xml');
-    const items = doc.querySelectorAll('item');
-    
-    if (items.length > 0) {
-      const latest = items[0]; // First item is newest
+    const items = doc.getElementsByTagName('item');
+    const latest = items.item(0); // First item is newest
+
+    if (latest) {
       
 	  const getText = (tag: string): string =>
-        latest.getElementsByTagName(tag)[0]?.textContent?.trim() ?? '';
+      latest.getElementsByTagName(tag).item(0)?.textContent?.trim() ?? '';
 
       const title = getText('title');
       const link = getText('link');
