@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "kv-tutorial",
+	"name": "sub-stack-fetcher-2",
 	"main": "src/index.ts",
 	"compatibility_date": "2026-03-10",
 	"observability": {
@@ -12,7 +12,18 @@
 	},
 	"compatibility_flags": [
 		"nodejs_compat"
+	],
+
+	"kv_namespaces": [
+		{
+			"binding": "KV",
+			"id": "932630742284404f8f16142f035a406e"
+		}
 	]
+}
+
+
+
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
@@ -41,4 +52,3 @@
 	 * https://developers.cloudflare.com/workers/wrangler/configuration/#service-bindings
 	 */
 	// "services": [  {   "binding": "MY_SERVICE",   "service": "my-service"  } ]
-}
