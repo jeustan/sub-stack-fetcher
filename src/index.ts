@@ -37,7 +37,7 @@ export default {
       const description = getText('description');
       
       // Store in KV
-      await env.KV.put('current', JSON.stringify({
+      await env.LATEST_POST.put('current', JSON.stringify({
         title, link, description,
         fetchedAt: new Date().toISOString()
       }));
@@ -48,7 +48,7 @@ export default {
   
   async fetch(request, env) {
     // Serve the latest post from KV
-    const post = await env.KV.get('current');
+    const post = await env.LATEST_POST.get('current');
     
     if (!post) {
       return new Response('No posts yet', { status: 404 });
